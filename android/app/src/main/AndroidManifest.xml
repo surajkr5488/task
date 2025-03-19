@@ -1,6 +1,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+<uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+<uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+
+
 
     <application
       android:name=".MainApplication"
@@ -22,5 +28,13 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
       </activity>
+      <meta-data android:name="com.transistorsoft.locationmanager.license" android:value="TRIAL" />
+      <service android:name=".LocationService" android:foregroundServiceType="location"/>
+      <service android:name=".MyBackgroundService"
+         android:foregroundServiceType="location"/>
+<service android:name="com.google.android.gms.location.FusedLocationProviderService"
+         android:foregroundServiceType="location"/>
+
+
     </application>
 </manifest>
